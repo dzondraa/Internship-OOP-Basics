@@ -3,7 +3,7 @@ Walking through basic concepts of OOP like abstraction, polymorphism, encapsulat
 
 ## OOP Concepts
 - Polymorphism
-- Abstraction
+- Inheritance
 - Encapsulation
 
 ## Value and Reference Types
