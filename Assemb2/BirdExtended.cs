@@ -13,18 +13,63 @@ namespace Assemb2
         // Clan je dostupan u nasledjenim klasama !u konstruktoru!
         public BirdExtended()
         {
-            int val =  base.protectedMember;
+            int val = this.protectedMember;
         }
 
     }
 
 
-    public class BirdExtended2 : BirdWithInternal
+    public class BirdExtendingInternalMemeberFromOtherProject : Snadbox.BirdWithInternal
     {
-        public BirdExtended2()
+        public BirdExtendingInternalMemeberFromOtherProject()
         {
             // base referenca nema pristup internal clanovima roditeljske klase
             //base
         }
     }
+
+    public class BirdExtendingInternalMemeberFromThisProject: Assemb2.BirdWithInternal
+    {
+        // Private class
+        InnerClass instance = new InnerClass();
+        public BirdExtendingInternalMemeberFromThisProject()
+        {
+            // base referenca nema pristup internal clanovima roditeljske klase
+            this.add();
+
+        }
+
+        class InnerClass : InternalClassFromThisProject
+        {
+
+            void changeValue()
+            {
+                this.a = 2;
+            }
+        }
+    }
+
+
+    internal class InternalClassFromThisProject
+    {
+        internal int a = 2;
+    }
+
+
+
+    public class BirdWithInternal
+    {
+        internal void add()
+        {
+            Console.WriteLine("Internal method");
+        }
+       
+    }
+
+
+
+    
+
+
+
 }
